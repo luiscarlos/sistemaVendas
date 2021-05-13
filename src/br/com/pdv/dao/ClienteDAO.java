@@ -5,6 +5,7 @@
  */
 package br.com.pdv.dao;
 
+import br.com.pdv.dao.utilitarios.WebServiceCep;
 import br.com.pdv.model.Cliente;
 import conexaoJDBC.SingleConnection;
 import java.sql.Connection;
@@ -240,11 +241,35 @@ public class ClienteDAO {
             return cliente;
 
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro ao consultar clientes" + erro);
+            JOptionPane.showMessageDialog(null, " Cliente nao encontrado " + erro);
             return null;
         }
 
     }
+      
+      // buscar cep
+      
+	  public Cliente buscaCep(String cep) {
+       
+        WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+       
+
+        Cliente obj = new Cliente();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
+        }
+
+    }
+	
      
     
      
