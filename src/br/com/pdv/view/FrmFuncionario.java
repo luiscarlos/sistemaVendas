@@ -20,37 +20,38 @@ import javax.swing.table.DefaultTableModel;
  * @author luis.dasilva
  */
 public class FrmFuncionario extends javax.swing.JFrame {
-   
-    
+
     public void listarClientes() {
-        ClienteDAO clienteDAO = new ClienteDAO();
-        List<Cliente> listaCliente = clienteDAO.listarClientes();
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
+        List<Funcionario> listaFuncionario = funcionarioDao.listarFuncionarios();
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionario.getModel();
         dados.setNumRows(0);
-        
-        for(Cliente c: listaCliente){
+
+        for (Funcionario f : listaFuncionario) {
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-                
-                
-                
+                f.getId(),
+                f.getNome(),
+                f.getRg(),
+                f.getCpf(),
+                f.getEmail(),
+                f.getSenha(),
+                f.getCargo(),
+                f.getNivelAcesso(),
+                f.getTelefone(),
+                f.getCelular(),
+                f.getCep(),
+                f.getEndereco(),
+                f.getNumero(),
+                f.getComplemento(),
+                f.getBairro(),
+                f.getCidade(),
+                f.getUf()
+
             });
         }
-        
+
     }
+
     /**
      * Creates new form FrmCliente
      */
@@ -577,30 +578,30 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // Botao salvar 
-     
-            Funcionario funcionario = new Funcionario();
-            funcionario.setNome(txtNome.getText());
-            funcionario.setRg(txtRg.getText());
-            funcionario.setCpf(txtCpf.getText());
-            funcionario.setEmail(txtEmail.getText());
-            funcionario.setSenha(txtSenha.getText());
-            funcionario.setCargo(txtCargo.getText());
-            funcionario.setNivelAcesso(cbNivel.getSelectedItem().toString());
-            funcionario.setTelefone(txtTelefoneFixo.getText());
-            funcionario.setCelular(txtCelular.getText());
-            funcionario.setCep(txtCep.getText());
-            funcionario.setEndereco(txtEndereco.getText());
-            funcionario.setNumero(Integer.parseInt(txtNumero.getText()));
-            funcionario.setComplemento(txtComplemento.getText());
-            funcionario.setBairro(txtBairro.getText());
-            funcionario.setCidade(txtCidade.getText());
-            funcionario.setUf(cbUf.getSelectedItem().toString());
 
-            FuncionarioDao funcionarioDAO = new FuncionarioDao();
-            funcionarioDAO.cadastrarFuncionarios(funcionario);
-            
-             Utilitarios utilitarios = new Utilitarios();
-            utilitarios.LimparTela(PainelDadosPessoais);
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome(txtNome.getText());
+        funcionario.setRg(txtRg.getText());
+        funcionario.setCpf(txtCpf.getText());
+        funcionario.setEmail(txtEmail.getText());
+        funcionario.setSenha(txtSenha.getText());
+        funcionario.setCargo(txtCargo.getText());
+        funcionario.setNivelAcesso(cbNivel.getSelectedItem().toString());
+        funcionario.setTelefone(txtTelefoneFixo.getText());
+        funcionario.setCelular(txtCelular.getText());
+        funcionario.setCep(txtCep.getText());
+        funcionario.setEndereco(txtEndereco.getText());
+        funcionario.setNumero(Integer.parseInt(txtNumero.getText()));
+        funcionario.setComplemento(txtComplemento.getText());
+        funcionario.setBairro(txtBairro.getText());
+        funcionario.setCidade(txtCidade.getText());
+        funcionario.setUf(cbUf.getSelectedItem().toString());
+
+        FuncionarioDao funcionarioDAO = new FuncionarioDao();
+        funcionarioDAO.cadastrarFuncionarios(funcionario);
+
+        Utilitarios utilitarios = new Utilitarios();
+        utilitarios.LimparTela(PainelDadosPessoais);
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -619,81 +620,80 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // carrega lista
         listarClientes();
-        
+
     }//GEN-LAST:event_formWindowActivated
 
     private void tabelaFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFuncionarioMouseClicked
-                    // TODO add your handling code here:
-                    jTabbedPane4.setSelectedIndex(0);
-                    txtCodigo.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 0).toString());
-                    txtNome.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 1).toString());
-                    txtRg.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 2).toString());
-                    txtCpf.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 3).toString());
-                    txtEmail.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 4).toString());
-                    txtTelefoneFixo.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 5).toString());
-                    txtCelular.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 6).toString());
-                    txtCep.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 7).toString());
-                    txtEndereco.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 8).toString());
-                    txtNumero.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 9).toString());
-                    txtComplemento.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 10).toString());
-                    txtBairro.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 11).toString());
-                    txtCidade.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 12).toString());
-                    cbUf.setSelectedItem(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 13).toString());
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(0);
+        txtCodigo.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 0).toString());
+        txtNome.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 1).toString());
+        txtRg.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 2).toString());
+        txtCpf.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 3).toString());
+        txtEmail.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 4).toString());
+        txtTelefoneFixo.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 5).toString());
+        txtCelular.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 6).toString());
+        txtCep.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 7).toString());
+        txtEndereco.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 8).toString());
+        txtNumero.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 9).toString());
+        txtComplemento.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 10).toString());
+        txtBairro.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 11).toString());
+        txtCidade.setText(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 12).toString());
+        cbUf.setSelectedItem(tabelaFuncionario.getValueAt(tabelaFuncionario.getSelectedRow(), 13).toString());
     }//GEN-LAST:event_tabelaFuncionarioMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-        
-            Cliente cliente = new Cliente();
-            cliente.setNome(txtNome.getText());
-            cliente.setRg(txtRg.getText());
-            cliente.setCpf(txtCpf.getText());
-            cliente.setEmail(txtEmail.getText());
-            cliente.setTelefone(txtTelefoneFixo.getText());
-            cliente.setCelular(txtCelular.getText());
-            cliente.setCep(txtCep.getText());
-            cliente.setEndereco(txtEndereco.getText());
-            cliente.setNumero(Integer.parseInt(txtNumero.getText()));
-            cliente.setComplemento(txtComplemento.getText());
-            cliente.setBairro(txtBairro.getText());
-            cliente.setCidade(txtCidade.getText());
-            cliente.setUf(cbUf.getSelectedItem().toString());
-            
-            cliente.setId(Integer.parseInt(txtCodigo.getText()));
 
-            ClienteDAO clienteDAO = new ClienteDAO();
-            clienteDAO.alterarClientes(cliente);
-            
-            Utilitarios utilitarios = new Utilitarios();
-            utilitarios.LimparTela(PainelDadosPessoais);
-            
+        Cliente cliente = new Cliente();
+        cliente.setNome(txtNome.getText());
+        cliente.setRg(txtRg.getText());
+        cliente.setCpf(txtCpf.getText());
+        cliente.setEmail(txtEmail.getText());
+        cliente.setTelefone(txtTelefoneFixo.getText());
+        cliente.setCelular(txtCelular.getText());
+        cliente.setCep(txtCep.getText());
+        cliente.setEndereco(txtEndereco.getText());
+        cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+        cliente.setComplemento(txtComplemento.getText());
+        cliente.setBairro(txtBairro.getText());
+        cliente.setCidade(txtCidade.getText());
+        cliente.setUf(cbUf.getSelectedItem().toString());
+
+        cliente.setId(Integer.parseInt(txtCodigo.getText()));
+
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.alterarClientes(cliente);
+
+        Utilitarios utilitarios = new Utilitarios();
+        utilitarios.LimparTela(PainelDadosPessoais);
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-                    // TODO add your handling code here:
-                    
-            Cliente cliente = new Cliente();
-            cliente.setId(Integer.parseInt(txtCodigo.getText()));
+        // TODO add your handling code here:
 
-            ClienteDAO clienteDAO = new ClienteDAO();
-            clienteDAO.excluirClientes(cliente);
-            
-             Utilitarios utilitarios = new Utilitarios();
-             utilitarios.LimparTela(PainelDadosPessoais);
+        Cliente cliente = new Cliente();
+        cliente.setId(Integer.parseInt(txtCodigo.getText()));
+
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.excluirClientes(cliente);
+
+        Utilitarios utilitarios = new Utilitarios();
+        utilitarios.LimparTela(PainelDadosPessoais);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        
-        
-        String nome = "%" +txtPesquisarNome.getText()+"%";
-        
+
+        String nome = "%" + txtPesquisarNome.getText() + "%";
+
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> listaCliente = clienteDAO.buscarClientesPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionario.getModel();
         dados.setNumRows(0);
-        
-        for(Cliente c: listaCliente){
+
+        for (Cliente c : listaCliente) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -709,19 +709,19 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 c.getBairro(),
                 c.getCidade(),
                 c.getUf()
-     
+
             });
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void txtPesquisarNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarNomeKeyPressed
         // TODO add your handling code here:
-        String nome = "%" +txtPesquisarNome.getText()+"%";
-         ClienteDAO clienteDAO = new ClienteDAO();
+        String nome = "%" + txtPesquisarNome.getText() + "%";
+        ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> listaCliente = clienteDAO.buscarClientesPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionario.getModel();
         dados.setNumRows(0);
-           for(Cliente c: listaCliente){
+        for (Cliente c : listaCliente) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -737,10 +737,10 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 c.getBairro(),
                 c.getCidade(),
                 c.getUf()
-     
+
             });
         }
-        
+
     }//GEN-LAST:event_txtPesquisarNomeKeyPressed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -751,13 +751,12 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        
-            
-            String nome = txtNome.getText();
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cliente = new Cliente();
 
-            cliente = dao.consultarClientesPorNome(nome);
+        String nome = txtNome.getText();
+        ClienteDAO dao = new ClienteDAO();
+        Cliente cliente = new Cliente();
+
+        cliente = dao.consultarClientesPorNome(nome);
         if (cliente.getNome() != null) {
             txtCodigo.setText(String.valueOf(cliente.getId()));
             txtNome.setText(cliente.getNome());
@@ -773,29 +772,28 @@ public class FrmFuncionario extends javax.swing.JFrame {
             txtBairro.setText(cliente.getBairro());
             txtCidade.setText(cliente.getCidade());
             cbUf.setSelectedItem(cliente.getUf());
-            }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado");
         }
 
-           
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
         // TODO add your handling code here:
         //Programacao do keypress
-	if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
-         Cliente obj =  new Cliente();
-         ClienteDAO dao = new ClienteDAO();
-         obj = dao.buscaCep(txtCelular.getText());
-         
-         txtEndereco.setText(obj.getEndereco());
-         txtBairro.setText(obj.getBairro());
-         txtCidade.setText(obj.getCidade());
-         cbUf.setSelectedItem(obj.getUf());               
-         System.out.println(obj.getUf());
-         
-     }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Cliente obj = new Cliente();
+            ClienteDAO dao = new ClienteDAO();
+            obj = dao.buscaCep(txtCelular.getText());
+
+            txtEndereco.setText(obj.getEndereco());
+            txtBairro.setText(obj.getBairro());
+            txtCidade.setText(obj.getCidade());
+            cbUf.setSelectedItem(obj.getUf());
+            System.out.println(obj.getUf());
+
+        }
     }//GEN-LAST:event_txtCepKeyPressed
 
     /**

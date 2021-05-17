@@ -21,11 +21,10 @@ import javax.swing.JOptionPane;
  * @author luis.dasilva
  */
 public class ClienteDAO {
-    
+
     private Connection connection;
-    
-    
-    public ClienteDAO(){
+
+    public ClienteDAO() {
         this.connection = new SingleConnection().getConnection();
     }
 
@@ -63,11 +62,10 @@ public class ClienteDAO {
 
     // Metodo alterar cliente
     public void alterarClientes(Cliente obj) {
-         try {
+        try {
             //1-passo = criar comando sql
             String sql = "update tb_clientes set nome=?,rg=?,cpf=?,email=?,telefone=?,celular=?,cep=?,endereco=?,"
                     + "numero=?,complemento=?,bairro=?,cidade=?,estado=? where id=?";
-            
 
             //2-passo = conectar o banco de dados e organizar o comando sql
             PreparedStatement insert = connection.prepareStatement(sql);
@@ -98,21 +96,21 @@ public class ClienteDAO {
     // metodo excluir cliente
     public void excluirClientes(Cliente obj) {
         try {
-            
+
             // criar comando sql
             String sql = "delete from tb_clientes where id = ?";
-            
+
             // conectar com banco e organizar comandos sql
-            PreparedStatement excluir = connection.prepareCall(sql);
+            PreparedStatement excluir = connection.prepareStatement(sql);
             excluir.setInt(1, obj.getId());
             excluir.execute();
-            
+
             connection.commit();
-            
-            JOptionPane.showMessageDialog(null,"Cliente excluido com sucesso");
-            
+
+            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso");
+
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null,"Erro ao excluir clientes" + erro);
+            JOptionPane.showMessageDialog(null, "Erro ao excluir clientes" + erro);
         }
 
     }
@@ -160,10 +158,9 @@ public class ClienteDAO {
         }
 
     }
-         
+
     // Listar clientes por nome
-    
-     public List<Cliente> buscarClientesPorNome(String nome) {
+    public List<Cliente> buscarClientesPorNome(String nome) {
         try {
             // criar lista
             List<Cliente> lista = new ArrayList<>();
@@ -174,8 +171,7 @@ public class ClienteDAO {
             // organizar SQL
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, nome);
-            
-            
+
             ResultSet resultado = stm.executeQuery();
 
             while (resultado.next()) {
@@ -208,9 +204,9 @@ public class ClienteDAO {
         }
 
     }
-     
-     // Consultar cliente por nome
-      public Cliente consultarClientesPorNome(String nome) {
+
+    // Consultar cliente por nome
+    public Cliente consultarClientesPorNome(String nome) {
         try {
 
             // criar comando sql
@@ -218,11 +214,11 @@ public class ClienteDAO {
 
             // organizar SQL
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, nome);         
+            stm.setString(1, nome);
             ResultSet resultado = stm.executeQuery();
-            
-             Cliente cliente = new Cliente();
-         if(resultado.next()) {              
+
+            Cliente cliente = new Cliente();
+            if (resultado.next()) {
                 cliente.setId(resultado.getInt("id"));
                 cliente.setNome(resultado.getString("nome"));
                 cliente.setRg(resultado.getString("rg"));
@@ -246,13 +242,11 @@ public class ClienteDAO {
         }
 
     }
-      
-      // buscar cep
-      
-	  public Cliente buscaCep(String cep) {
-       
+
+    // buscar cep
+    public Cliente buscaCep(String cep) {
+
         WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
-       
 
         Cliente obj = new Cliente();
 
@@ -269,8 +263,7 @@ public class ClienteDAO {
         }
 
     }
-	
-     
-    
-     
+
+   
+
 }
