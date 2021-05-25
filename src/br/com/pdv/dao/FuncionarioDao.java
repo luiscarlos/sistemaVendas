@@ -7,6 +7,8 @@ package br.com.pdv.dao;
 
 import br.com.pdv.model.Cliente;
 import br.com.pdv.model.Funcionario;
+import br.com.pdv.view.FrmLogin;
+import br.com.pdv.view.FrmMenu;
 import conexaoJDBC.SingleConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -167,6 +169,123 @@ public class FuncionarioDao {
             JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso");
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro ao tentar alterar cadastro" + erro);
+        }
+    }
+    
+     // Consultar funcionario por nome
+    public Funcionario consultarFuncionarioPorNome(String nome) {
+        try {
+
+            // criar comando sql
+            String sql = "select * from tb_funcionarios where nome = ? ";
+
+            // organizar SQL
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, nome);
+            ResultSet resultado = stm.executeQuery();
+
+            Funcionario funcionario = new Funcionario();
+            if (resultado.next()) {
+                funcionario.setId(resultado.getInt("id"));
+                funcionario.setNome(resultado.getString("nome"));
+                funcionario.setRg(resultado.getString("rg"));
+                funcionario.setCpf(resultado.getString("cpf"));
+                funcionario.setEmail(resultado.getString("email"));
+                funcionario.setSenha(resultado.getString("senha"));
+                funcionario.setCargo(resultado.getString("cargo"));
+                funcionario.setNivelAcesso(resultado.getString("nivel_acesso"));
+                funcionario.setTelefone(resultado.getString("telefone"));
+                funcionario.setCelular(resultado.getString("celular"));
+                funcionario.setCep(resultado.getString("cep"));
+                funcionario.setEndereco(resultado.getString("endereco"));
+                funcionario.setNumero(resultado.getInt("numero"));
+                funcionario.setComplemento(resultado.getString("complemento"));
+                funcionario.setBairro(resultado.getString("bairro"));
+                funcionario.setCidade(resultado.getString("cidade"));
+                funcionario.setUf(resultado.getString("estado"));
+            }
+            return funcionario;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, " Funcionario nao encontrado " + erro);
+            return null;
+        }
+
+    }
+    
+    // Listar funcionario por nome
+    public List<Funcionario> buscarFuncionarioPorNome(String nome) {
+        try {
+            // criar lista
+            List<Funcionario> lista = new ArrayList<>();
+
+            // criar comando sql
+            String sql = "select * from tb_funcionarios where nome like ? ";
+
+            // organizar SQL
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, nome);
+
+            ResultSet resultado = stm.executeQuery();
+
+            while (resultado.next()) {
+                Funcionario funcionario = new Funcionario();
+                funcionario.setId(resultado.getInt("id"));
+                funcionario.setNome(resultado.getString("nome"));
+                funcionario.setRg(resultado.getString("rg"));
+                funcionario.setCpf(resultado.getString("cpf"));
+                funcionario.setEmail(resultado.getString("email"));
+                funcionario.setSenha(resultado.getString("senha"));
+                funcionario.setCargo(resultado.getString("cargo"));
+                funcionario.setNivelAcesso(resultado.getString("nivel_acesso"));
+                funcionario.setTelefone(resultado.getString("telefone"));
+                funcionario.setCelular(resultado.getString("celular"));
+                funcionario.setCep(resultado.getString("cep"));
+                funcionario.setEndereco(resultado.getString("endereco"));
+                funcionario.setNumero(resultado.getInt("numero"));
+                funcionario.setComplemento(resultado.getString("complemento"));
+                funcionario.setBairro(resultado.getString("bairro"));
+                funcionario.setCidade(resultado.getString("cidade"));
+                funcionario.setUf(resultado.getString("estado"));
+
+                lista.add(funcionario);
+
+                connection.commit();
+            }
+
+            return lista;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar funcionario" + erro);
+            return null;
+        }
+
+    }
+    
+    // metodo efetuar login
+    public void efetuarLogin(String emial, String senha) {
+        try {
+            String sql = " select * from tb_funcionarios where email = ? and senha = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, emial);
+            stm.setString(2, senha);
+            
+             ResultSet resultado = stm.executeQuery();
+               if(resultado.next()) {
+                   JOptionPane.showMessageDialog(null,"Seja bem vindo");
+                   
+                   FrmMenu frmMenu = new FrmMenu();
+                   frmMenu.usuarioLogado = resultado.getString("nome");
+                   frmMenu.setVisible(true);
+                   
+               }else {
+                   JOptionPane.showMessageDialog(null,"Usuário nao localizado");
+                   new FrmLogin().setVisible(true);
+               }
+
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null,"Erro: " + erro);
         }
     }
 
