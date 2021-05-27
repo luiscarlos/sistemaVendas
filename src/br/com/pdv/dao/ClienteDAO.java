@@ -233,6 +233,8 @@ public class ClienteDAO {
                 cliente.setBairro(resultado.getString("bairro"));
                 cliente.setCidade(resultado.getString("cidade"));
                 cliente.setUf(resultado.getString("estado"));
+                
+                connection.commit();
             }
             return cliente;
 
