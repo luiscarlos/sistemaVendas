@@ -154,6 +154,11 @@ public class FrmProdutos extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbFornecedorMouseClicked(evt);
+            }
+        });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscar.setText("Pesquisar");
@@ -212,14 +217,15 @@ public class FrmProdutos extends javax.swing.JFrame {
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
+                .addGroup(PainelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
                         .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtQtaEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PainelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtQtaEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(194, Short.MAX_VALUE))
         );
 
@@ -417,43 +423,35 @@ public class FrmProdutos extends javax.swing.JFrame {
                     jTabbedPane4.setSelectedIndex(0);
                     txtCodigo.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 0).toString());
                     txtDescricao.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 1).toString());
-                    txtRg.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 2).toString());
-                    txtCpf.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 3).toString());
-                    txtPreco.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 4).toString());
-                    txtTelefoneFixo.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 5).toString());
-                    txtCelular.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 6).toString());
-                    txtCep.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 7).toString());
-                    txtEndereco.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 8).toString());
-                    txtNumero.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 9).toString());
-                    txtComplemento.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 10).toString());
-                    txtBairro.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 11).toString());
-                    txtCidade.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 12).toString());
-                    cbFornecedor.setSelectedItem(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 13).toString());
+                    txtPreco.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 2).toString());
+                     txtQtaEstoque.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 3).toString());
+                    cbFornecedor.setSelectedItem(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 4).toString());
+                    
+                    Fornecedores fornecedor = new Fornecedores();
+                    FornecedorDao fornecedorDao = new FornecedorDao();
+                    
+                    fornecedor = fornecedorDao.consultarFornecedorPorNome(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 5).toString());
+                    cbFornecedor.removeAllItems();
+                    cbFornecedor.getModel().setSelectedItem(fornecedor);
     }//GEN-LAST:event_tabelaFornecedorMouseClicked
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         
-            Cliente cliente = new Cliente();
-            cliente.setNome(txtDescricao.getText());
-            cliente.setRg(txtRg.getText());
-            cliente.setCpf(txtCpf.getText());
-            cliente.setEmail(txtPreco.getText());
-            cliente.setTelefone(txtTelefoneFixo.getText());
-            cliente.setCelular(txtCelular.getText());
-            cliente.setCep(txtCep.getText());
-            cliente.setEndereco(txtEndereco.getText());
-            cliente.setNumero(Integer.parseInt(txtNumero.getText()));
-            cliente.setComplemento(txtComplemento.getText());
-            cliente.setBairro(txtBairro.getText());
-            cliente.setCidade(txtCidade.getText());
-            cliente.setUf(cbFornecedor.getSelectedItem().toString());
+            Produtos produto = new Produtos();
+            produto.setId(Integer.parseInt(txtCodigo.getText()));
+            produto.setDescricao(txtDescricao.getText());
+            produto.setPreço(Double.parseDouble(txtPreco.getText()));
+            produto.setQtd_estoque(Integer.parseInt(txtQtaEstoque.getText()));
             
-            cliente.setId(Integer.parseInt(txtCodigo.getText()));
+            Fornecedores fornecedor = new Fornecedores();
+            fornecedor = (Fornecedores) cbFornecedor.getSelectedItem();
 
-            ClienteDAO clienteDAO = new ClienteDAO();
-            clienteDAO.alterarClientes(cliente);
-            
+            produto.setFornecedor(fornecedor);
+          
+            ProdutosDao produtoDAO = new ProdutosDao();
+            produtoDAO.alterarProdutos(produto);
+             
             Utilitarios utilitarios = new Utilitarios();
             utilitarios.LimparTela(PainelDadosPessoais);
             
@@ -462,11 +460,11 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
                     // TODO add your handling code here:
                     
-            Cliente cliente = new Cliente();
-            cliente.setId(Integer.parseInt(txtCodigo.getText()));
+            Produtos produto = new Produtos();
+            produto.setId(Integer.parseInt(txtCodigo.getText()));
 
-            ClienteDAO clienteDAO = new ClienteDAO();
-            clienteDAO.excluirClientes(cliente);
+            ProdutosDao produtoDAO = new ProdutosDao();
+            produtoDAO.excluirProdutos(produto);
             
              Utilitarios utilitarios = new Utilitarios();
              utilitarios.LimparTela(PainelDadosPessoais);
@@ -478,28 +476,19 @@ public class FrmProdutos extends javax.swing.JFrame {
         
         String nome = "%" +txtPesquisarNome.getText()+"%";
         
-        ClienteDAO clienteDAO = new ClienteDAO();
-        List<Cliente> listaCliente = clienteDAO.buscarClientesPorNome(nome);
+        ProdutosDao produtoDAO = new ProdutosDao();
+        List<Produtos> listaProdutos = produtoDAO.listarProdutosPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaFornecedor.getModel();
         dados.setNumRows(0);
         
-        for(Cliente c: listaCliente){
+        for(Produtos p: listaProdutos){
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-     
+                p.getId(),
+                p.getDescricao(),
+                p.getPreço(),
+                p.getQtd_estoque(),
+                p.getFornecedor(),
+          
             });
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
@@ -507,27 +496,17 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void txtPesquisarNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarNomeKeyPressed
         // TODO add your handling code here:
         String nome = "%" +txtPesquisarNome.getText()+"%";
-         ClienteDAO clienteDAO = new ClienteDAO();
-        List<Cliente> listaCliente = clienteDAO.buscarClientesPorNome(nome);
+         ProdutosDao produtoDAO = new ProdutosDao();
+        List<Produtos> listaProdutos = produtoDAO.listarProdutosPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaFornecedor.getModel();
         dados.setNumRows(0);
-           for(Cliente c: listaCliente){
+           for(Produtos p: listaProdutos){
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getTelefone(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
-     
+                p.getId(),
+                p.getDescricao(),
+                p.getPreço(),
+                p.getQtd_estoque(),
+                p.getFornecedor(),
             });
         }
         
@@ -543,26 +522,22 @@ public class FrmProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
         
             
-            String nome = txtDescricao.getText();
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cliente = new Cliente();
+            String descricao = txtDescricao.getText();
+            ProdutosDao dao = new ProdutosDao();
+            Produtos produtos = new Produtos();
 
-            cliente = dao.consultarClientesPorNome(nome);
-        if (cliente.getNome() != null) {
-            txtCodigo.setText(String.valueOf(cliente.getId()));
-            txtDescricao.setText(cliente.getNome());
-            txtRg.setText(cliente.getRg());
-            txtCpf.setText(cliente.getCpf());
-            txtPreco.setText(cliente.getEmail());
-            txtTelefoneFixo.setText(cliente.getTelefone());
-            txtCelular.setText(cliente.getCelular());
-            txtCep.setText(cliente.getCep());
-            txtEndereco.setText(cliente.getEndereco());
-            txtNumero.setText(String.valueOf(cliente.getNumero()));
-            txtComplemento.setText(cliente.getComplemento());
-            txtBairro.setText(cliente.getBairro());
-            txtCidade.setText(cliente.getCidade());
-            cbFornecedor.setSelectedItem(cliente.getUf());
+            produtos = dao.consultarProdutoPorNome(descricao);
+            
+        if (produtos.getDescricao() != null) {
+            txtCodigo.setText(String.valueOf(produtos.getId()));
+            txtDescricao.setText(produtos.getDescricao());
+            txtPreco.setText(String.valueOf(produtos.getPreço()));
+            txtQtaEstoque.setText(String.valueOf(produtos.getQtd_estoque()));
+            
+            Fornecedores fornecedor = new Fornecedores();
+            FornecedorDao fornecedorDao = new FornecedorDao();
+                    
+            cbFornecedor.getModel().setSelectedItem(fornecedor);
             }else{
             JOptionPane.showMessageDialog(null, "Cliente não encontrado");
         }
@@ -581,6 +556,17 @@ public class FrmProdutos extends javax.swing.JFrame {
             cbFornecedor.addItem(f);
         }
     }//GEN-LAST:event_cbFornecedorAncestorAdded
+
+    private void cbFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbFornecedorMouseClicked
+        // TODO add your handling code here:
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        List<Fornecedores> listaFornecedores = fornecedorDao.listarFornecedoreses();
+        cbFornecedor.removeAll();
+        
+        for(Fornecedores f: listaFornecedores){
+            cbFornecedor.addItem(f);
+        }
+    }//GEN-LAST:event_cbFornecedorMouseClicked
 
     /**
      * @param args the command line arguments
