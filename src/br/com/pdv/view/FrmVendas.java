@@ -60,28 +60,28 @@ public class FrmVendas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnNovo = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
+        btnPagamento = new javax.swing.JButton();
+        btnCancelarVenda = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNome1 = new javax.swing.JTextField();
+        txtNomeProduto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtNome2 = new javax.swing.JTextField();
+        txtDataProduto = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtNome6 = new javax.swing.JTextField();
+        txtPreco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtNome7 = new javax.swing.JTextField();
+        txtQtd_produto = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        btnBuscar1 = new javax.swing.JButton();
+        btnAdicionarItem = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtNome3 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtNome4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtNome5 = new javax.swing.JTextField();
+        txtDataCliente = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         txtNome10 = new javax.swing.JTextField();
         btnBuscar3 = new javax.swing.JButton();
@@ -89,9 +89,10 @@ public class FrmVendas extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        txtNome8 = new javax.swing.JTextField();
+        txtTotalVenda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de Vendas");
         setExtendedState(6);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -126,25 +127,25 @@ public class FrmVendas extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1010, 108);
 
-        btnNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnNovo.setText("EFETUAR PAGAMENTO");
-        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+        btnPagamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnPagamento.setText("EFETUAR PAGAMENTO");
+        btnPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoActionPerformed(evt);
+                btnPagamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovo);
-        btnNovo.setBounds(640, 480, 190, 25);
+        getContentPane().add(btnPagamento);
+        btnPagamento.setBounds(640, 480, 190, 25);
 
-        btnSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSalvar.setText("CANCELAR VENDA");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelarVenda.setText("CANCELAR VENDA");
+        btnCancelarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
+                btnCancelarVendaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalvar);
-        btnSalvar.setBounds(840, 480, 147, 25);
+        getContentPane().add(btnCancelarVenda);
+        btnCancelarVenda.setBounds(840, 480, 147, 25);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do produto"));
@@ -152,50 +153,50 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Codigo:");
 
-        txtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Produto:");
 
-        txtNome1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtNomeProdutoActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Data venda:");
 
-        txtNome2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome2.addActionListener(new java.awt.event.ActionListener() {
+        txtDataProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDataProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome2ActionPerformed(evt);
+                txtDataProdutoActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Preço:");
 
-        txtNome6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome6.addActionListener(new java.awt.event.ActionListener() {
+        txtPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome6ActionPerformed(evt);
+                txtPrecoActionPerformed(evt);
             }
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Qtd. Produto:");
 
-        txtNome7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome7.addActionListener(new java.awt.event.ActionListener() {
+        txtQtd_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtQtd_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome7ActionPerformed(evt);
+                txtQtd_produtoActionPerformed(evt);
             }
         });
 
@@ -207,11 +208,11 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBuscar1.setText("Adicionar item");
-        btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdicionarItem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAdicionarItem.setText("Adicionar item");
+        btnAdicionarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar1ActionPerformed(evt);
+                btnAdicionarItemActionPerformed(evt);
             }
         });
 
@@ -228,24 +229,24 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDataProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNome7))
-                            .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtQtd_produto))
+                            .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar1)))
+                        .addComponent(btnAdicionarItem)))
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -254,9 +255,9 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
-                        .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDataProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
                     .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,21 +265,21 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
-                                    .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtQtd_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(btnBuscar1)))
+                        .addComponent(btnAdicionarItem)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -291,32 +292,32 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Nome:");
 
-        txtNome3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome3.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome3ActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("CPF:");
 
-        txtNome4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome4ActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Data venda:");
 
-        txtNome5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome5.addActionListener(new java.awt.event.ActionListener() {
+        txtDataCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDataCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome5ActionPerformed(evt);
+                txtDataClienteActionPerformed(evt);
             }
         });
+
+        try {
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###. ###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -328,13 +329,14 @@ public class FrmVendas extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(txtNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDataCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
         jPanel3Layout.setVerticalGroup(
@@ -342,14 +344,14 @@ public class FrmVendas extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(txtNome5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -421,10 +423,10 @@ public class FrmVendas extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Total da venda:");
 
-        txtNome8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNome8.addActionListener(new java.awt.event.ActionListener() {
+        txtTotalVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTotalVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome8ActionPerformed(evt);
+                txtTotalVendaActionPerformed(evt);
             }
         });
 
@@ -436,7 +438,7 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNome8, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addComponent(txtTotalVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                 .addGap(39, 39, 39))
         );
         jPanel5Layout.setVerticalGroup(
@@ -444,7 +446,7 @@ public class FrmVendas extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -456,7 +458,7 @@ public class FrmVendas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+    private void btnCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVendaActionPerformed
         // Botao salvar 
      
             Produtos produto = new Produtos();
@@ -476,7 +478,7 @@ public class FrmVendas extends javax.swing.JFrame {
              Utilitarios utilitarios = new Utilitarios();
             utilitarios.LimparTela(PainelDadosPessoais);
 
-    }//GEN-LAST:event_btnSalvarActionPerformed
+    }//GEN-LAST:event_btnCancelarVendaActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // carrega lista
@@ -484,43 +486,39 @@ public class FrmVendas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+    private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         // TODO add your handling code here:
         Utilitarios utilitarios = new Utilitarios();
         utilitarios.LimparTela(PainelDadosPessoais);
-    }//GEN-LAST:event_btnNovoActionPerformed
+    }//GEN-LAST:event_btnPagamentoActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void txtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeProdutoActionPerformed
+
+    private void txtDataProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataProdutoActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    private void txtDataClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtDataClienteActionPerformed
 
-    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome2ActionPerformed
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
-    private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
+    private void txtQtd_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtd_produtoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome3ActionPerformed
-
-    private void txtNome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome4ActionPerformed
-
-    private void txtNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome5ActionPerformed
-
-    private void txtNome6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome6ActionPerformed
-
-    private void txtNome7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome7ActionPerformed
+    }//GEN-LAST:event_txtQtd_produtoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -547,9 +545,9 @@ public class FrmVendas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
+    private void btnAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
+    }//GEN-LAST:event_btnAdicionarItemActionPerformed
 
     private void btnBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar3ActionPerformed
         // TODO add your handling code here:
@@ -559,9 +557,9 @@ public class FrmVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome10ActionPerformed
 
-    private void txtNome8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome8ActionPerformed
+    private void txtTotalVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalVendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome8ActionPerformed
+    }//GEN-LAST:event_txtTotalVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -602,11 +600,11 @@ public class FrmVendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarItem;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnBuscar3;
-    private javax.swing.JButton btnNovo;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnCancelarVenda;
+    private javax.swing.JButton btnPagamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -624,15 +622,15 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JFormattedTextField txtCpf;
+    private javax.swing.JTextField txtDataCliente;
+    private javax.swing.JTextField txtDataProduto;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome10;
-    private javax.swing.JTextField txtNome2;
-    private javax.swing.JTextField txtNome3;
-    private javax.swing.JTextField txtNome4;
-    private javax.swing.JTextField txtNome5;
-    private javax.swing.JTextField txtNome6;
-    private javax.swing.JTextField txtNome7;
-    private javax.swing.JTextField txtNome8;
+    private javax.swing.JTextField txtNomeProduto;
+    private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtQtd_produto;
+    private javax.swing.JTextField txtTotalVenda;
     // End of variables declaration//GEN-END:variables
 }
