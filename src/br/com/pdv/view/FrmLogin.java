@@ -6,6 +6,7 @@
 package br.com.pdv.view;
 
 import br.com.pdv.dao.FuncionarioDao;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -92,6 +93,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         btnSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +168,17 @@ public class FrmLogin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        
+          int op;
+        op = JOptionPane.showConfirmDialog(null, " Deseja realmente sair do sistema ?");
+        
+        if(op == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

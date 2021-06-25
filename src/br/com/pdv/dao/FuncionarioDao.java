@@ -272,11 +272,26 @@ public class FuncionarioDao {
             
              ResultSet resultado = stm.executeQuery();
                if(resultado.next()) {
-                   JOptionPane.showMessageDialog(null,"Seja bem vindo");
                    
-                   FrmMenu frmMenu = new FrmMenu();
-                   frmMenu.usuarioLogado = resultado.getString("nome");
-                   frmMenu.setVisible(true);
+                   //Caso o usuario seja do tipo ADM
+                   if(resultado.getString("nivel_acesso").equalsIgnoreCase("Administrador")){
+                        JOptionPane.showMessageDialog(null,"Seja bem vindo ao sistema");                 
+                        FrmMenu frmMenu = new FrmMenu();
+                        frmMenu.usuarioLogado = resultado.getString("nome");
+                        frmMenu.setVisible(true);
+                   }
+                   // Caso o usuario seja do tipo limitado
+                   else if(resultado.getString("nivel_acesso").equalsIgnoreCase("Usuário")){
+                        JOptionPane.showMessageDialog(null,"Seja bem vindo ao sistema");                 
+                        FrmMenu frmMenu = new FrmMenu();
+                        frmMenu.usuarioLogado = resultado.getString("nome");
+                        
+                        //Desabilitar os menus
+                        frmMenu.menuPosicaoDoDia.setEnabled(false);
+                        frmMenu.menuHistoricoVendas.setEnabled(false);
+                        frmMenu.setVisible(true);
+                   }
+                  
                    
                }else {
                    JOptionPane.showMessageDialog(null,"Usuário nao localizado");

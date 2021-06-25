@@ -244,6 +244,46 @@ public class ClienteDAO {
         }
 
     }
+    
+     // Consultar cliente por cpf
+    public Cliente consultarClientesPorCpf(String cpf) {
+        try {
+
+            // criar comando sql
+            String sql = "select * from tb_clientes where cpf = ? ";
+
+            // organizar SQL
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, cpf);
+            ResultSet resultado = stm.executeQuery();
+
+            Cliente cliente = new Cliente();
+            if (resultado.next()) {
+                cliente.setId(resultado.getInt("id"));
+                cliente.setNome(resultado.getString("nome"));
+                cliente.setRg(resultado.getString("rg"));
+                cliente.setCpf(resultado.getString("cpf"));
+                cliente.setEmail(resultado.getString("email"));
+                cliente.setTelefone(resultado.getString("telefone"));
+                cliente.setCelular(resultado.getString("celular"));
+                cliente.setCep(resultado.getString("cep"));
+                cliente.setEndereco(resultado.getString("endereco"));
+                cliente.setNumero(resultado.getInt("numero"));
+                cliente.setComplemento(resultado.getString("complemento"));
+                cliente.setBairro(resultado.getString("bairro"));
+                cliente.setCidade(resultado.getString("cidade"));
+                cliente.setUf(resultado.getString("estado"));
+                
+                connection.commit();
+            }
+            return cliente;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, " Cliente nao encontrado " + erro);
+            return null;
+        }
+
+    }
 
     // buscar cep
     public Cliente buscaCep(String cep) {

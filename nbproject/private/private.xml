@@ -5,21 +5,27 @@
         <group>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Funcionario.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmVendas.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/ProdutosDao.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/ItemVendaDao.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Vendas.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/ItemVenda.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/FornecedorDao.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/frmPagamento.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Cliente.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/ClienteDAO.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmFornecedores.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Fornecedores.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/utilitarios/WebServiceCep.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmFuncionario.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmDetalheVenda.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmLogin.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/FuncionarioDao.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Produtos.java</file>
-            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/utilitarios/Utilitarios.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmProdutos.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/conexaoJDBC/SingleConnection.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/ProdutosDao.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Cliente.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/utilitarios/WebServiceCep.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmFuncionario.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/VendasDao.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmHistorico.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/model/Produtos.java</file>
+            <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/dao/utilitarios/Utilitarios.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmMenu.java</file>
             <file>file:/C:/Users/luis.dasilva/Documents/MeusProjetos/sistemaVendas/src/br/com/pdv/view/FrmCliente.java</file>
         </group>

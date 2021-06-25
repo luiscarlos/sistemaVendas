@@ -12,7 +12,7 @@ package br.com.pdv.model;
 public class Produtos {
     private int id;
     private String descricao;
-    private double preço;
+    private double preco;
     private int qtd_estoque;
     private Fornecedores fornecedor;
 
@@ -32,12 +32,12 @@ public class Produtos {
         this.descricao = descricao;
     }
 
-    public double getPreço() {
-        return preço;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setPreço(double preço) {
-        this.preço = preço;
+    public void setPreco(double preço) {
+        this.preco = preço;
     }
 
     public int getQtd_estoque() {

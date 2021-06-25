@@ -34,7 +34,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             dados.addRow(new Object[]{
                 p.getId(),
                 p.getDescricao(),
-                p.getPreço(),
+                p.getPreco(),
                 p.getQtd_estoque(),
                 p.getFornecedor().getNome()
       
@@ -60,7 +60,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
+        tabelaConsultaProdutos = new javax.swing.JTabbedPane();
         PainelDadosPessoais = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
@@ -84,7 +84,8 @@ public class FrmProdutos extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de produtos");
         setExtendedState(6);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -229,7 +230,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addContainerGap(194, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Dados de produtos", PainelDadosPessoais);
+        tabelaConsultaProdutos.addTab("Dados de produtos", PainelDadosPessoais);
 
         PainelConsultaClientes.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -305,7 +306,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane4.addTab("Consulta de produtos", PainelConsultaClientes);
+        tabelaConsultaProdutos.addTab("Consulta de produtos", PainelConsultaClientes);
 
         btnNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnNovo.setText("Novo");
@@ -346,7 +347,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane4)
+                .addComponent(tabelaConsultaProdutos)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(233, 233, 233)
@@ -364,7 +365,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabelaConsultaProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo)
@@ -383,7 +384,7 @@ public class FrmProdutos extends javax.swing.JFrame {
      
             Produtos produto = new Produtos();
             produto.setDescricao(txtDescricao.getText());
-            produto.setPreço(Double.parseDouble(txtPreco.getText()));
+            produto.setPreco(Double.parseDouble(txtPreco.getText()));
             produto.setQtd_estoque(Integer.parseInt(txtQtaEstoque.getText()));
            
             
@@ -420,7 +421,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void tabelaFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaFornecedorMouseClicked
                     // TODO add your handling code here:
-                    jTabbedPane4.setSelectedIndex(0);
+                    tabelaConsultaProdutos.setSelectedIndex(0);
                     txtCodigo.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 0).toString());
                     txtDescricao.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 1).toString());
                     txtPreco.setText(tabelaFornecedor.getValueAt(tabelaFornecedor.getSelectedRow(), 2).toString());
@@ -441,7 +442,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             Produtos produto = new Produtos();
             produto.setId(Integer.parseInt(txtCodigo.getText()));
             produto.setDescricao(txtDescricao.getText());
-            produto.setPreço(Double.parseDouble(txtPreco.getText()));
+            produto.setPreco(Double.parseDouble(txtPreco.getText()));
             produto.setQtd_estoque(Integer.parseInt(txtQtaEstoque.getText()));
             
             Fornecedores fornecedor = new Fornecedores();
@@ -485,7 +486,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             dados.addRow(new Object[]{
                 p.getId(),
                 p.getDescricao(),
-                p.getPreço(),
+                p.getPreco(),
                 p.getQtd_estoque(),
                 p.getFornecedor(),
           
@@ -504,7 +505,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             dados.addRow(new Object[]{
                 p.getId(),
                 p.getDescricao(),
-                p.getPreço(),
+                p.getPreco(),
                 p.getQtd_estoque(),
                 p.getFornecedor(),
             });
@@ -531,7 +532,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         if (produtos.getDescricao() != null) {
             txtCodigo.setText(String.valueOf(produtos.getId()));
             txtDescricao.setText(produtos.getDescricao());
-            txtPreco.setText(String.valueOf(produtos.getPreço()));
+            txtPreco.setText(String.valueOf(produtos.getPreco()));
             txtQtaEstoque.setText(String.valueOf(produtos.getQtd_estoque()));
             
             Fornecedores fornecedor = new Fornecedores();
@@ -623,7 +624,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane4;
+    public javax.swing.JTabbedPane tabelaConsultaProdutos;
     private javax.swing.JTable tabelaFornecedor;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDescricao;
